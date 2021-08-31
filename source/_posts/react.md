@@ -47,7 +47,7 @@ ReactDOM.render(VDOM,document.getElementById('test'))
 ### 静态页面拆成组件
 
 - 属性class=，需要改成className=
-- 属性style=“”，需要改成style={{}}
+- 属性style=“”，需要改成style={% raw %}{{}}{% endraw %}
 
 # 组件
 
