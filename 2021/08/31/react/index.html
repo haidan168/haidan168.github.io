@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="希望千金可以参加东奥！">
+  <meta name="description" content="虚拟dom 本质是Object类型的对象 虚拟DOM比较小，真实DOM比较大，因为虚拟DOM是React内部在用，无需真实DOM上那么多的属性 虚拟DOM最终会被React转化为真实DOM，呈现在页面上  jsx语法规则 定义虚拟DOM时，不要写引号  1234567891011121314151617const myId &#x3D; &amp;#x27;anya&amp;#x27;const myData &#x3D; &amp;#x2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react">
 <meta property="og:url" content="http://example.com/2021/08/31/react/index.html">
 <meta property="og:site_name" content="准备！开始！">
-<meta property="og:description" content="希望千金可以参加东奥！">
+<meta property="og:description" content="虚拟dom 本质是Object类型的对象 虚拟DOM比较小，真实DOM比较大，因为虚拟DOM是React内部在用，无需真实DOM上那么多的属性 虚拟DOM最终会被React转化为真实DOM，呈现在页面上  jsx语法规则 定义虚拟DOM时，不要写引号  1234567891011121314151617const myId &#x3D; &amp;#x27;anya&amp;#x27;const myData &#x3D; &amp;#x2">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-31T02:07:09.000Z">
-<meta property="article:modified_time" content="2021-08-31T02:08:38.878Z">
+<meta property="article:modified_time" content="2021-08-31T08:51:02.200Z">
 <meta property="article:author" content="anya">
 <meta property="article:tag" content="react react-router hook">
 <meta name="twitter:card" content="summary">
@@ -190,7 +190,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-08-31 10:07:09 / 修改时间：10:08:38" itemprop="dateCreated datePublished" datetime="2021-08-31T10:07:09+08:00">2021-08-31</time>
+              <time title="创建时间：2021-08-31 10:07:09 / 修改时间：16:51:02" itemprop="dateCreated datePublished" datetime="2021-08-31T10:07:09+08:00">2021-08-31</time>
             </span>
 
           
@@ -204,7 +204,95 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="虚拟dom"><a href="#虚拟dom" class="headerlink" title="虚拟dom"></a>虚拟dom</h1><ul>
+<li>本质是Object类型的对象</li>
+<li>虚拟DOM比较小，真实DOM比较大，因为虚拟DOM是React内部在用，无需真实DOM上那么多的属性</li>
+<li>虚拟DOM最终会被React转化为真实DOM，呈现在页面上</li>
+</ul>
+<h1 id="jsx语法规则"><a href="#jsx语法规则" class="headerlink" title="jsx语法规则"></a>jsx语法规则</h1><ul>
+<li>定义虚拟DOM时，不要写引号</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">const myId = &#x27;anya&#x27;</span><br><span class="line">const myData = &#x27;HeLlo,rEaCt&#x27;</span><br><span class="line"></span><br><span class="line">//1.创建虚拟DOM</span><br><span class="line">const VDOM = (</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">		&lt;h2 className=&quot;title&quot; id=&#123;myId.toLowerCase()&#125;&gt;</span><br><span class="line">			&lt;span style=&#123;&#123;color:&#x27;white&#x27;,fontSize:&#x27;29px&#x27;&#125;&#125;&gt;&#123;myData.toLowerCase()&#125;&lt;/span&gt;</span><br><span class="line">		&lt;/h2&gt;</span><br><span class="line">		&lt;h2 className=&quot;title&quot; id=&#123;myId.toUpperCase()&#125;&gt;</span><br><span class="line">			&lt;span style=&#123;&#123;color:&#x27;white&#x27;,fontSize:&#x27;29px&#x27;&#125;&#125;&gt;&#123;myData.toLowerCase()&#125;&lt;/span&gt;</span><br><span class="line">		&lt;/h2&gt;</span><br><span class="line">		&lt;input type=&quot;text&quot;/&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">)</span><br><span class="line">//2.渲染虚拟DOM到页面</span><br><span class="line">ReactDOM.render(VDOM,document.getElementById(&#x27;test&#x27;))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>标签中混入JS表达式时要用{}</li>
+<li>样式的类名指定不要用class，要用className</li>
+<li>内联样式，要用style={{key:value}}的形式去写</li>
+<li>只有一个根标签</li>
+<li>标签必须闭合</li>
+<li>标签首字母<ul>
+<li>若小写字母开头，则将该标签转为html中同名元素，若html中无该标签对应的同名元素，则报错</li>
+<li>若大写字母开头，react就去渲染对应的组件，若组件没有定义，则报错</li>
+</ul>
+</li>
+</ul>
+<h3 id="静态页面拆成组件"><a href="#静态页面拆成组件" class="headerlink" title="静态页面拆成组件"></a>静态页面拆成组件</h3><ul>
+<li>属性class=，需要改成className=</li>
+<li>属性style=“”，需要改成style={{}}</li>
+</ul>
+<h1 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h1><h2 id="函数式组件"><a href="#函数式组件" class="headerlink" title="函数式组件"></a>函数式组件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import React from &#x27;react&#x27;</span><br><span class="line">		</span><br><span class="line">export default function Rfc() &#123;</span><br><span class="line">    return (</span><br><span class="line">        &lt;div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行ReactDOM.render(<Rfc/>…)后：</p>
+<ol>
+<li>React解析组件标签，找到了Rfc组件</li>
+<li>发现组件是使用函数定义的，随后调用该函数，将返回的虚拟DOM转为真实DOM，随后呈现在页面中</li>
+</ol>
+<h2 id="类式组件"><a href="#类式组件" class="headerlink" title="类式组件"></a>类式组件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &#x27;react&#x27;</span><br><span class="line">		</span><br><span class="line">export default class Rcc extends Component &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line"></span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>render放在哪里？</p>
+<ul>
+<li>放在组件的原型对象上，给实例使用</li>
+</ul>
+<p>render中的this指向？</p>
+<ul>
+<li>组件实例对象</li>
+</ul>
+</blockquote>
+<p>执行ReactDOM.render(<Rcc/>…)后：</p>
+<ol>
+<li>React解析组件标签，找到了Rcc组件</li>
+<li>发现组件是使用类定义的，随后new出来该类的实例，并通过该实例调用到原型上的render方法</li>
+<li>将render返回的虚拟DOM转为真实DOM，随后呈现在页面中</li>
+</ol>
+<h1 id="组件绑定监听事件传递了参数"><a href="#组件绑定监听事件传递了参数" class="headerlink" title="组件绑定监听事件传递了参数"></a>组件绑定监听事件传递了参数</h1><p>这时函数并没有绑定这个函数，而是绑定的这个函数的返回值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onMouseEnter=&#123;handleMouse(true)&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>绑定的处理函数返回一个函数</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function handleMouse (flag) &#123;</span><br><span class="line">    return () =&gt; setMouse(flag)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>绑定时就确保绑定的一定是函数</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onMouseEnter=&#123;() =&gt; handleMouse(true)&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="组件绑定唯一key值"><a href="#组件绑定唯一key值" class="headerlink" title="组件绑定唯一key值"></a>组件绑定唯一key值</h1><h2 id="虚拟dom中key的作用"><a href="#虚拟dom中key的作用" class="headerlink" title="虚拟dom中key的作用"></a>虚拟dom中key的作用</h2><ul>
+<li>当state中的数据发生变化时，react会根据新数据生成新的虚拟dom，接着react进行新虚拟dom和旧虚拟dom的diff比较</li>
+</ul>
+<p>比较规则：</p>
+<ul>
+<li>旧虚拟DOM中找到了与新虚拟DOM相同的key：<ol>
+<li>若虚拟DOM中内容没变, 直接使用之前的真实DOM</li>
+<li>若虚拟DOM中内容变了, 则生成新的真实DOM，随后替换掉页面中之前的真实DOM</li>
+</ol>
+</li>
+<li>旧虚拟DOM中未找到与新虚拟DOM相同的key，根据数据创建新的真实DOM，随后渲染到到页面</li>
+</ul>
+<h2 id="使用index作为key可能引发的问题"><a href="#使用index作为key可能引发的问题" class="headerlink" title="使用index作为key可能引发的问题"></a>使用index作为key可能引发的问题</h2><ul>
+<li><p>若对数据进行：逆序添加、逆序删除等破坏顺序操作</p>
+<ul>
+<li>会产生没有必要的真实DOM更新 ==&gt; 界面效果没问题, 但效率低。</li>
+</ul>
+</li>
+<li><p>如果结构中还包含输入类的DOM</p>
+<ul>
+<li>会产生错误DOM更新 ==&gt; 界面显示有问题</li>
+</ul>
+</li>
+</ul>
+
     </div>
 
     
@@ -284,6 +372,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%99%9A%E6%8B%9Fdom"><span class="nav-number">1.</span> <span class="nav-text">虚拟dom</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsx%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">jsx语法规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2%E6%8B%86%E6%88%90%E7%BB%84%E4%BB%B6"><span class="nav-number">2.0.1.</span> <span class="nav-text">静态页面拆成组件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">组件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BB%84%E4%BB%B6"><span class="nav-number">3.1.</span> <span class="nav-text">函数式组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%BC%8F%E7%BB%84%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">类式组件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E7%BB%91%E5%AE%9A%E7%9B%91%E5%90%AC%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92%E4%BA%86%E5%8F%82%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">组件绑定监听事件传递了参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E7%BB%91%E5%AE%9A%E5%94%AF%E4%B8%80key%E5%80%BC"><span class="nav-number">5.</span> <span class="nav-text">组件绑定唯一key值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9Fdom%E4%B8%ADkey%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">5.1.</span> <span class="nav-text">虚拟dom中key的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8index%E4%BD%9C%E4%B8%BAkey%E5%8F%AF%E8%83%BD%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">5.2.</span> <span class="nav-text">使用index作为key可能引发的问题</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
