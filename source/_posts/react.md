@@ -37,7 +37,7 @@ ReactDOM.render(VDOM,document.getElementById('test'))
 
 - 标签中混入JS表达式时要用{}
 - 样式的类名指定不要用class，要用className
-- 内联样式，要用style={{key:value}}的形式去写
+- 内联样式，要用style={% raw %}{{key:value}}{% endraw %}的形式去写
 - 只有一个根标签
 - 标签必须闭合
 - 标签首字母
